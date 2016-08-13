@@ -1,0 +1,18 @@
+
+<script>
+	templateOptions  = {
+		onDisplay: function( parent ){
+			$(parent).wrap('<div class="bl-perspective-perspective-parent">');
+			$(parent).addClass( 'bl-perspective-transform-parent' );
+		},
+		onStop: function(parent){
+			$(parent).removeClass( 'bl-perspective-transform-parent' );
+			$(BimLoader.getLoaderElements( parent )).fadeOut(500 ,
+				function(){
+					$(parent).unwrap('<div class="bl-perspective-perspective-parent">');
+					BimLoader.removeLoaderElements( parent );
+				});
+			return true;
+		}
+	}
+</script>

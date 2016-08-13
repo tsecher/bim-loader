@@ -1,0 +1,28 @@
+<div class="no-transition bl-round-waves">
+	<div class="wrapper">
+		<div class="container">
+			<div class="round"></div>
+			<div class="round"></div>
+			<div class="round"></div>
+		</div>
+	</div>
+</div>
+
+
+
+<script>
+	templateOptions  = {
+		onDisplay: function( parent ){
+			$(BimLoader.getLoaderElements( parent )).hide();
+			$(BimLoader.getLoaderElements( parent )).fadeIn(500);
+		},
+		onStop: function(parent){
+			// return true;
+			$(BimLoader.getLoaderElements( parent )).fadeOut(200 ,
+				function(){
+					BimLoader.removeLoaderElements( parent );
+				});
+			return true;
+		}
+	}
+</script>
